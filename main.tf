@@ -2,13 +2,18 @@
 # Terraform module to provide consistent naming
 #
 
-local {
-  name = "${var.namespaced ? format("%s-%s", var.environment, var.name) : format("%s", var.name)}"
-  tags = "${ merge(
-    var.tags,
-    map("Name", var.name),
-    map("Environment", var.environment),
-    map("Terraform", "true") )}"
+resource "null_resource" "this" {
+  count     = "${var.enabled ? 1 : 0}"
+  triggers  = {
+    environment = "${lower(format("%s", var.environment))}"
+    name        = "${var.namespaced ? lower(format("%s-%s", var.environment, var.name)) : lower(format("%s", var.name))}"
+    /* FIX: wants only strings
+    tags        = "${ merge(
+      var.tags,
+      map("Name", var.name),
+      map("Environment", var.environment),
+      map("Terraform", "true") )}"*/
+  }
 }
 /*
 resource "null_resource" "default" {

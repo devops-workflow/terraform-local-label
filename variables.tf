@@ -3,6 +3,10 @@
 variable "name" {
   description = "Name for the EFS Filesystem"
 }
+variable "enabled" {
+  description = "Enable use of module"
+  default     = true
+}
 variable "environment" {
   description = "Environment (ex: dev, qa, stage, prod)"
 }
@@ -12,6 +16,7 @@ variable "namespaced" {
 }
 variable "tags" {
   description = "A map of tags to add to all resources"
+  type        = "map"
   default     = {}
 }
 
