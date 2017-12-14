@@ -1,4 +1,3 @@
-// Standard Variables
 variable "attributes" {
   description = "Suffix name with additional attributes (policy, role, etc.)"
   type        = "list"
@@ -8,15 +7,11 @@ variable "delimiter" {
   description = "Delimiter to be used between `name`, `namespaces`, `attributes`, etc."
   default     = "-"
 }
-variable "enabled" {
-  description = "Enable use of module. Set to false to not create resources"
-  default     = true
-}
 variable "environment" {
   description = "Environment (ex: dev, qa, stage, prod)"
 }
 variable "name" {
-  description = "Name for the EFS Filesystem"
+  description = "Base name for resource"
 }
 variable "namespace-env" {
   description = "Prefix name with the environment"
@@ -34,25 +29,4 @@ variable "tags" {
   description = "A map of tags to add to all resources"
   type        = "map"
   default     = {}
-}
-
-// Internal Variables
-variable "id" {
-  default = ""
-}
-variable "name_lower" {
-  description = "Internal"
-  default     = ""
-}
-variable "name_env" {
-  description = "Internal"
-  default     = ""
-}
-variable "name_org" {
-  description = "Internal"
-  default     = ""
-}
-variable "nameo" {
-  description = "Internal"
-  default     = ""
 }

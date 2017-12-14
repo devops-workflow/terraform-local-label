@@ -14,13 +14,13 @@ output "name" {
   description = "Name"
   value       = "${module.labels.name}"
 }
-output "name_20" {
+output "id_20" {
   description = "Name truncated to 20 characters"
-  value       = "${module.labels.name_20}"
+  value       = "${module.labels.id_20}"
 }
-output "name_32" {
+output "id_32" {
   description = "Name truncated to 32 characters"
-  value       = "${module.labels.name_32}"
+  value       = "${module.labels.id_32}"
 }
 output "organization" {
   description = "Organization name lowercase"
