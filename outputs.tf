@@ -61,12 +61,5 @@ output "organization" {
 }
 */
 output "tags" {
-  value = "${ merge(
-    var.tags,
-    map(
-      "Name", "${local.name_org}",
-      "Environment", "${local.env}",
-      "Organization", "${local.org}",
-      "Terraform", "true"
-    ))}"
+  value = "${local.tags}"
 }

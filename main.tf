@@ -16,6 +16,14 @@ locals {
   name_org  = "${var.namespace-org ? join(var.delimiter, list(local.org, local.name_env)) : local.name_env}"
   name_20   = "${substr(replace(local.name_org,"_","-"),0,19 <= length(local.name_org) ? 19 : length(local.name_org))}"
   name_32   = "${substr(replace(local.name_org,"_","-"),0,31 <= length(local.name_org) ? 31 : length(local.name_org))}"
+  tags      = "${ merge(
+      var.tags,
+      map(
+        "Name", "${local.name_org}",
+        "Environment", "${local.env}",
+        "Organization", "${local.org}",
+        "Terraform", "true"
+      ))}"
 }
 /*
 resource "null_resource" "pre1" {
