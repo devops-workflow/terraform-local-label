@@ -23,10 +23,13 @@ output "organization" {
   description = "Organization name lowercase"
   value       = "${null_resource.this.triggers.organization}"
 }
-
-/*
 output "tags" {
-  description = "Tags"
-  value       = "${null_resource.this.triggers.tags}"
+  value = "${ merge(
+    var.tags,
+    map(
+      "Name", "${null_resource.this.triggers.name}",
+      "Environment", "${null_resource.this.triggers.environment}",
+      "Organization", "${null_resource.this.triggers.organization}",
+      "Terraform", "true"
+    ))}"
 }
-*/

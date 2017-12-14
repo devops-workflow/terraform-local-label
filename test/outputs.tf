@@ -23,10 +23,7 @@ output "organization" {
   description = "Organization name lowercase"
   value       = "${module.labels.organization}"
 }
-
-/*
 output "tags" {
   description = "Tags"
   value       = "${module.labels.tags}"
 }
-*/

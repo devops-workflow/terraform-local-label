@@ -6,7 +6,7 @@ module "labels" {
   organization  = "CorpXyZ"
 }
 
-/*
+/* Need to fix outputs for when resources don't exist
 module "labels-disabled" {
   source        = "../"
   name          = "CapMe"
@@ -14,7 +14,7 @@ module "labels-disabled" {
   organization  = "CorpXyZ"
   enabled       = false
 }
-*/
+/**/
 
 module "labels-env" {
   source        = "../"

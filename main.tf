@@ -36,7 +36,7 @@ resource "null_resource" "this" {
     name          = "${null_resource.pre3.triggers.name_org}"
     name_20       = "${substr(replace(null_resource.pre3.triggers.name_org,"_","-"),0,19 <= length(null_resource.pre3.triggers.name_org) ? 19 : length(null_resource.pre3.triggers.name_org))}"
     name_32       = "${substr(replace(null_resource.pre3.triggers.name_org,"_","-"),0,31 <= length(null_resource.pre3.triggers.name_org) ? 31 : length(null_resource.pre3.triggers.name_org))}"
-    /* FIX: wants only strings
+    /* FIX: wants only strings. Moved to outputs
     tags        = "${ merge(
       var.tags,
       map("Name", var.name),
