@@ -37,6 +37,9 @@ variable "tags" {
 }
 
 // Internal Variables
+variable "id" {
+  default = ""
+}
 variable "name_lower" {
   description = "Internal"
   default     = ""
@@ -46,6 +49,10 @@ variable "name_env" {
   default     = ""
 }
 variable "name_org" {
+  description = "Internal"
+  default     = ""
+}
+variable "nameo" {
   description = "Internal"
   default     = ""
 }

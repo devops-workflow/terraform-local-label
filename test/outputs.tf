@@ -7,6 +7,9 @@ output "environment" {
   description = "Environment name lowercase"
   value       = "${module.labels.environment}"
 }
+output "id" {
+  value       = "${module.labels.id}"
+}
 output "name" {
   description = "Name"
   value       = "${module.labels.name}"
