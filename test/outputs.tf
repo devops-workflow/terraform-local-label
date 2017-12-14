@@ -22,6 +22,14 @@ output "id_32" {
   description = "Name truncated to 32 characters"
   value       = "${module.labels.id_32}"
 }
+output "id_env" {
+  description = "If env namespace enabled <env>-<name> else <name>"
+  value       = "${module.labels.id_env}"
+}
+output "id_org" {
+  description = "If org namespace enabled <org>-<id_env> else <id_env>"
+  value       = "${module.labels.id_org}"
+}
 output "organization" {
   description = "Organization name lowercase"
   value       = "${module.labels.organization}"

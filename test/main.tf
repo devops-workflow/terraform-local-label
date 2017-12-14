@@ -5,7 +5,7 @@ module "labels" {
   environment   = "Dev"
   organization  = "CorpXyZ"
   namespace-org = true
-  attributes    = ["role", "policy", "use", ""]
+  #attributes    = ["role", "policy", "use", ""]
   tags          = "${map("Key", "Value")}"
 }
 module "labels-tags" {
