@@ -5,6 +5,14 @@ module "labels" {
   environment   = "Dev"
   organization  = "CorpXyZ"
 }
+module "labels-tags" {
+  source        = "../"
+  name          = "CapMe"
+  environment   = "Dev"
+  organization  = "CorpXyZ"
+  attributes    = ["role", "policy", "use", ""]
+  tags          = "${map("Key", "Value")}"
+}
 
 /* Need to fix outputs for when resources don't exist
 module "labels-disabled" {
