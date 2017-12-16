@@ -19,6 +19,14 @@ output "id_32" {
   description = "ID truncated to 32 characters"
   value       = "${local.id_32}"
 }
+output "id_attr_20" {
+  description = "ID truncated to 20 characters"
+  value       = "${local.id_attr_20}"
+}
+output "id_attr_32" {
+  description = "ID truncated to 32 characters"
+  value       = "${local.id_attr_32}"
+}
 output "id_env" {
   description = "If env namespace enabled <env>-<name> else <name>"
   value       = "${local.id_env}"
@@ -38,4 +46,11 @@ output "organization" {
 output "tags" {
   description = "Tags map merged with standard tags"
   value       = "${local.tags}"
+}
+//debugging
+output "org_attr_20" {
+  value = "${local.org_attr_20}"
+}
+output "org_attr_32" {
+  value = "${local.org_attr_32}"
 }

@@ -6,6 +6,7 @@ module "labels" {
   organization  = "CorpXyZ"
   namespace-org = true
   #attributes    = ["role", "policy", "use", ""]
+  attributes    = ["8080"]
   tags          = "${map("Key", "Value")}"
 }
 module "labels-tags" {
