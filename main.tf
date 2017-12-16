@@ -29,8 +29,7 @@ locals {
   id          = "${length(local.attr) > 0 ? join(var.delimiter, list(local.id_org, local.attr)) : local.id_org}"
   id_20       = "${substr(replace(local.id,"_","-"),0,19 <= length(local.id) ? 19 : length(local.id))}"
   id_32       = "${substr(replace(local.id,"_","-"),0,31 <= length(local.id) ? 31 : length(local.id))}"
-  # Fix calc
-  org_attr_20 = "${(19 <= length(local.id_org) ? 19 - length(local.attr) : length(local.id_org) - length(local.attr))}"
+  org_attr_20 = "${min(18 - length(local.attr), length(local.id_org))}"
   id_attr_20  = "${19 <= length(local.id) ?
     join(var.delimiter,
       list(
@@ -40,7 +39,7 @@ locals {
       list(local.attr)
     )
     : local.id}"
-  org_attr_32 = "${(31 <= length(local.id_org) ? 31 - length(local.attr) : length(local.id_org) - length(local.attr))}"
+  org_attr_32 = "${min(30 - length(local.attr), length(local.id_org))}"
   id_attr_32  = "${31 <= length(local.id) ?
     join(var.delimiter,
       list(
@@ -63,5 +62,6 @@ locals {
       "Environment", "${local.env}",
       "Organization", "${local.org}",
       "Terraform", "true"
-    ))}"
+    )
+  )}"
 }

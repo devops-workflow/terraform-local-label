@@ -20,11 +20,11 @@ output "id_32" {
   value       = "${local.id_32}"
 }
 output "id_attr_20" {
-  description = "ID truncated to 20 characters"
+  description = "ID max size 20 characters by truncating `id_org` then appending `attributes`"
   value       = "${local.id_attr_20}"
 }
 output "id_attr_32" {
-  description = "ID truncated to 32 characters"
+  description = "ID max size 32 characters by truncating `id_org` then appending `attributes`"
   value       = "${local.id_attr_32}"
 }
 output "id_env" {

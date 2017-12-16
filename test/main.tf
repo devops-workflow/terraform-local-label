@@ -9,6 +9,8 @@ module "labels" {
   attributes    = ["8080"]
   tags          = "${map("Key", "Value")}"
 }
+
+/*
 module "labels-tags" {
   source        = "../"
   name          = "CapMe"
@@ -26,7 +28,7 @@ module "labels-disabled" {
   organization  = "CorpXyZ"
   enabled       = false
 }
-/**/
+/*
 
 module "labels-env" {
   source        = "../"
@@ -52,3 +54,4 @@ module "labels-org-env" {
   namespace-env = true
   namespace-org = true
 }
+*/

@@ -8,26 +8,27 @@ output "environment" {
   value       = "${module.labels.environment}"
 }
 output "id" {
+  description = "Full combined ID"
   value       = "${module.labels.id}"
 }
 output "name" {
-  description = "Name"
+  description = "Name lowercase"
   value       = "${module.labels.name}"
 }
 output "id_20" {
-  description = "Name truncated to 20 characters"
+  description = "ID truncated to 20 characters"
   value       = "${module.labels.id_20}"
 }
 output "id_32" {
-  description = "Name truncated to 32 characters"
+  description = "ID truncated to 32 characters"
   value       = "${module.labels.id_32}"
 }
 output "id_attr_20" {
-  description = "Name truncated to 20 characters"
+  description = "ID max size 20 characters by truncating `id_org` then appending `attributes`"
   value       = "${module.labels.id_attr_20}"
 }
 output "id_attr_32" {
-  description = "Name truncated to 32 characters"
+  description = "ID max size 32 characters by truncating `id_org` then appending `attributes`"
   value       = "${module.labels.id_attr_32}"
 }
 output "id_env" {
@@ -43,7 +44,7 @@ output "organization" {
   value       = "${module.labels.organization}"
 }
 output "tags" {
-  description = "Tags"
+  description = "Tags with standard tags added"
   value       = "${module.labels.tags}"
 }
 output "org_attr_20" {
