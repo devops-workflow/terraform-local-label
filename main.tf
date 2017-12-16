@@ -2,9 +2,7 @@
 # Terraform module to provide consistent naming
 #
 # TODO:
-#   Add attributes to name if not empty
-#   Refactor to use local and output the locals. Test - test - test
-#   Change where replace is done. Move to earlier in process
+#   Change where replace is done. Move to earlier in process. On initial `name`?
 #   Create tags_asg list from tags map. If possible
 #   New input tags_asg -> tags_asg with standard tags added
 
@@ -50,10 +48,6 @@ locals {
     )
     : local.id}"
 
-  #tags_asg list of maps
-  #map("key", "interpolation1", "value", "value3", "propagate_at_launch", true),
-  # keys, values, map, merge, matchkeys, transpose
-
   #TODO: only add Organization if not ""
   tags      = "${ merge(
     var.tags,
@@ -64,4 +58,19 @@ locals {
       "Terraform", "true"
     )
   )}"
+  /*
+  tags_asg  = ["${ concat(
+    list(
+      map("key", "Name",
+        "value", var.namespaced ? format("%s-%s", var.environment, var.name)
+        : format("%s", var.name), "propagate_at_launch", true),
+      map("key", "Cluster",
+        "value", var.namespaced ? format("%s-%s", var.environment, var.name)
+        : format("%s", var.name), "propagate_at_launch", true),
+      map("key", "Environment", "value", var.environment, "propagate_at_launch", true),
+      map("key", "Terraform", "value", "true", "propagate_at_launch", true)
+    ),
+    var.tags_asg)
+  }"]
+*/
 }
