@@ -74,3 +74,10 @@ locals {
   }"]
 */
 }
+
+/* locals doesn't currently support count
+locals {
+  count = "${length(keys(local.tags))}"
+  tag_asg = "${map("key", element(keys(local.tags),count.index), "value", element(values(local.tags),count.index), "propagate_at_launch", true)}"
+}
+*/
