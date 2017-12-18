@@ -80,11 +80,17 @@ locals {
 */
 }
 
-/*
-  Could use null_resource to create? Would need enable/disable so only done when needed
-  Can only assign strings (NOT maps or lists)
-*/
-/*
+/* Try template_file, it supports count
+    Can only assign a single value (NOT maps or lists)
+data "template_file" "asg_tags" {
+  count     = "${var.autoscaling_group ? length(keys(local.tags)) : 0}"
+  template  = "${map("key", element(keys(local.tags),count.index), "value", element(values(local.tags),count.index), "propagate_at_launch", true)}"
+}
+#"${data.template_file.data_id.*.rendered}"
+/**/
+
+/* Could use null_resource to create? Would need enable/disable so only done when needed
+    Can only assign strings (NOT maps or lists)
 resource "null_resource" "asg_tags" {
   count = "${var.autoscaling_group ? length(keys(local.tags)) : 0}"
   triggers = {
@@ -95,6 +101,7 @@ resource "null_resource" "asg_tags" {
   }
 }
 */
+
 /* locals doesn't currently support count
 locals {
   count = "${length(keys(local.tags))}"
