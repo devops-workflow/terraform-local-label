@@ -8,6 +8,7 @@ module "labels" {
   #attributes    = ["role", "policy", "use", ""]
   attributes    = ["8080"]
   tags          = "${map("Key", "Value")}"
+  autoscaling_group = true
 }
 
 /*

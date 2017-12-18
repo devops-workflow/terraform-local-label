@@ -3,6 +3,10 @@ variable "attributes" {
   type        = "list"
   default     = []
 }
+variable "autoscaling_group" {
+  description = "If true, generate ASG tags map resource"
+  default     = false
+}
 variable "delimiter" {
   description = "Delimiter to be used between `name`, `namespaces`, `attributes`, etc."
   default     = "-"

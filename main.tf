@@ -6,6 +6,11 @@
 #   Create tags_asg list from tags map. If possible
 #   New input tags_asg -> tags_asg with standard tags added
 
+module "autoscaling_group" {
+  source  = "devops-workflow/boolean/local"
+  version = "0.1.0"
+  value   = "${var.autoscaling_group}"
+}
 module "namespace-env" {
   source  = "devops-workflow/boolean/local"
   version = "0.1.0"
@@ -75,6 +80,21 @@ locals {
 */
 }
 
+/*
+  Could use null_resource to create? Would need enable/disable so only done when needed
+  Can only assign strings (NOT maps or lists)
+*/
+/*
+resource "null_resource" "asg_tags" {
+  count = "${var.autoscaling_group ? length(keys(local.tags)) : 0}"
+  triggers = {
+    asg_tag = "${map("key", element(keys(local.tags),count.index), "value", element(values(local.tags),count.index), "propagate_at_launch", true)}"
+  }
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+*/
 /* locals doesn't currently support count
 locals {
   count = "${length(keys(local.tags))}"
