@@ -1,5 +1,4 @@
-terraform-local-label
-===
+# terraform-local-label
 
 Terraform module to provide consistent label names and tags for resources.
 
@@ -7,8 +6,8 @@ A single name format will not solve every use case, so multiple variants are ret
 
 All devops-workflow module will eventually use this.
 
-*NOTE:* `local` refers to this using `locals` and does not create any resources. It just builds new variables.
+**NOTE:** `local` refers to this using [locals](https://www.terraform.io/docs/configuration/locals.html) and does not create any resources. It just builds new variables.
 
 Terraform registry: https://registry.terraform.io/modules/devops-workflow/label/local
 
-TODO: Add usage/examples
+## TODO: Add usage/examples
