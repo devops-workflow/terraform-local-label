@@ -12,7 +12,7 @@ Terraform registry: https://registry.terraform.io/modules/devops-workflow/label/
 
 ## Usage:
 
-### Basic Example
+#### Basic Example
 
 ```hcl
 module "name" {
@@ -24,7 +24,7 @@ module "name" {
 ```
 This will create an `id` with the value of `qa-name`
 
-### S3 Example
+#### S3 Example
 
 ```hcl
 module "s3-name" {
@@ -44,9 +44,10 @@ Now reference `label` outputs to create the S3 bucket
 resource "aws_s3_bucket" "data" {
   bucket  = "${module.s3-name.id}"
   tags    = "${module.s3-name.tags}"
+}
 ```
 
-### All Variables Example
+#### All Variables Example
 Using in a module and exposing all settings to upstream caller.
 
 ```hcl
