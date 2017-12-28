@@ -49,8 +49,10 @@ output "tags" {
 }
 //debugging
 output "org_attr_20" {
-  value = "${local.org_attr_20}"
+  description = "Internal debugging. DO NOT USE"
+  value       = "${local.org_attr_20}"
 }
 output "org_attr_32" {
-  value = "${local.org_attr_32}"
+  description = "Internal debugging. DO NOT USE"
+  value       = "${local.org_attr_32}"
 }

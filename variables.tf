@@ -4,7 +4,7 @@ variable "attributes" {
   default     = []
 }
 variable "autoscaling_group" {
-  description = "If true, generate ASG tags map resource"
+  description = "DOES NOTHING YET. If true, generate ASG tags map resource"
   default     = false
 }
 variable "delimiter" {
@@ -12,25 +12,25 @@ variable "delimiter" {
   default     = "-"
 }
 variable "environment" {
-  description = "Environment (ex: dev, qa, stage, prod)"
+  description = "Environment (ex: `dev`, `qa`, `stage`, `prod`). (Second or top level namespace. Depending on namespacing options)"
 }
 variable "name" {
   description = "Base name for resource"
 }
 variable "namespace-env" {
-  description = "Prefix name with the environment"
+  description = "Prefix name with the environment. If true, format is: <env>-<name>"
   default     = true
 }
 variable "namespace-org" {
-  description = "Prefix name with the organization. If both env and org namespaces are used, format will be <org>-<env>-<name>"
+  description = "Prefix name with the organization. If true, format is: <org>-<env namespaced name>. If both env and org namespaces are used, format will be <org>-<env>-<name>"
   default     = false
 }
 variable "organization" {
-  description = "Organization name"
+  description = "Organization name (Top level namespace)."
   default     = ""
 }
 variable "tags" {
-  description = "A map of tags to add to all resources"
+  description = "A map of additional tags"
   type        = "map"
   default     = {}
 }
