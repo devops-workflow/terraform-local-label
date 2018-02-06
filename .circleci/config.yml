@@ -32,13 +32,14 @@ jobs:
               echo "Installing tflint..."
               install tflint /usr/local/tflint/bin
               echo "Configuring tflint..."
-              tf_ver=$(terraform version | head -1 | cut -dv -f2)
-              echo -e "\tConfig for terraform version: ${tf_ver}"
-              if [ -f '.tflint.hcl' ]; then
-                sed -i "/terraform_version =/s/\".*\"/\"${tf_ver}\"/" .tflint.hcl
-              else
-                echo -e "config {\nterraform_version = \"${tf_ver}\"\ndeep_check = true\n}" > .tflint.hcl
-              fi
+              # FIX: line failing with code 141
+              #tf_ver=$(terraform version | head -1 | cut -dv -f2)
+              #echo -e "\tConfig for terraform version: ${tf_ver}"
+              #if [ -f '.tflint.hcl' ]; then
+              #  sed -i "/terraform_version =/s/\".*\"/\"${tf_ver}\"/" .tflint.hcl
+              #else
+              #  echo -e "config {\nterraform_version = \"${tf_ver}\"\ndeep_check = true\n}" > .tflint.hcl
+              #fi
       - run:
           # Not supporting modules from registry ?? v0.5.4
           # For now, must ignore in config file
