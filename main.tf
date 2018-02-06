@@ -8,17 +8,19 @@
 
 module "autoscaling_group" {
   source  = "devops-workflow/boolean/local"
-  version = "0.1.0"
+  version = "0.1.1"
   value   = "${var.autoscaling_group}"
 }
+
 module "namespace-env" {
   source  = "devops-workflow/boolean/local"
-  version = "0.1.0"
+  version = "0.1.1"
   value   = "${var.namespace-env}"
 }
+
 module "namespace-org" {
   source  = "devops-workflow/boolean/local"
-  version = "0.1.0"
+  version = "0.1.1"
   value   = "${var.namespace-org}"
 }
 
@@ -33,7 +35,9 @@ locals {
   id_20       = "${substr(local.id,0,19 <= length(local.id) ? 19 : length(local.id))}"
   id_32       = "${substr(local.id,0,31 <= length(local.id) ? 31 : length(local.id))}"
   org_attr_20 = "${min(18 - length(local.attr), length(local.id_org))}"
-  id_attr_20  = "${19 <= length(local.id) ?
+  org_attr_32 = "${min(30 - length(local.attr), length(local.id_org))}"
+
+  id_attr_20 = "${19 <= length(local.id) ?
     join(var.delimiter,
       list(
         substr(local.id_org,0,
@@ -42,8 +46,8 @@ locals {
       list(local.attr)
     )
     : local.id}"
-  org_attr_32 = "${min(30 - length(local.attr), length(local.id_org))}"
-  id_attr_32  = "${31 <= length(local.id) ?
+
+  id_attr_32 = "${31 <= length(local.id) ?
     join(var.delimiter,
       list(
         substr(local.id_org,0,
@@ -54,7 +58,7 @@ locals {
     : local.id}"
 
   #TODO: only add Organization if not ""
-  tags      = "${ merge(
+  tags = "${ merge(
     var.tags,
     map(
       "Name", "${local.id}",
@@ -63,6 +67,7 @@ locals {
       "Terraform", "true"
     )
   )}"
+
   /*
   tags_asg  = ["${ concat(
     list(
@@ -89,6 +94,7 @@ data "template_file" "asg_tags" {
 #"${data.template_file.data_id.*.rendered}"
 /**/
 
+
 /* Could use null_resource to create? Would need enable/disable so only done when needed
     Can only assign strings (NOT maps or lists)
 resource "null_resource" "asg_tags" {
@@ -101,6 +107,7 @@ resource "null_resource" "asg_tags" {
   }
 }
 */
+
 
 /* locals doesn't currently support count
 locals {
