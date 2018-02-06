@@ -28,8 +28,10 @@ jobs:
               unzip tflint_linux_amd64.zip
               mkdir -p /usr/local/tflint/bin
               # TODO: CircleCI write to file for later run steps
-              export PATH=/usr/local/tflint/bin:$PATH
+              #export PATH=/usr/local/tflint/bin:$PATH
+              echo "Installing tflint..."
               install tflint /usr/local/tflint/bin
+              echo "Configuring tflint..."
               tf_ver=$(terraform version | head -1 | cut -dv -f2)
               if [ -f '.tflint.hcl' ]; then
                 sed -i "/terraform_version =/s/\".*\"/\"${tf_ver}\"/" .tflint.hcl
