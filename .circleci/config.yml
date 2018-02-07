@@ -23,7 +23,11 @@ jobs:
       - run:
           name: "Install: tflint"
           command: |
-              apk add wget
+              apk add jq wget
+              pkg_arch=linux_amd64
+              dl_url=$(curl -s https://api.github.com/repos/wata727/tflint/releases/latest | jq -r ".assets[] | select(.name | test(\"${pkg_arch}\")) | .browser_download_url")
+              echo "Download URL: ${dl_url}"
+              #wget ${dl_url}
               wget https://github.com/wata727/tflint/releases/download/v0.5.4/tflint_linux_amd64.zip
               unzip tflint_linux_amd64.zip
               mkdir -p /usr/local/tflint/bin
