@@ -37,9 +37,14 @@ jobs:
               if [ -f '.tflint.hcl' ]; then
                 sed -i "/terraform_version =/s/\".*\"/\"${tf_ver}\"/" .tflint.hcl
               else
+                # TODO: Create ignore_module section of all modules
+                #  grep -h '[^a-zA-Z]source[ =]' *.tf | sed -r 's/.*=\s+//' | sort -u
                 echo -e "config {\nterraform_version = \"${tf_ver}\"\ndeep_check = true\n}" > .tflint.hcl
               fi
+              echo "tflint configuration:"
               cat .tflint.hcl
+              echo "Module list:"
+              grep -h '[^a-zA-Z]source[ =]' *.tf | sed -r 's/.*=\s+//' | sort -u
       - run:
           # Not supporting modules from registry ?? v0.5.4
           # For now, must ignore in config file
