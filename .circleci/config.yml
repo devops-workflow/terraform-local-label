@@ -32,12 +32,11 @@ jobs:
               echo "Installing tflint..."
               install tflint /usr/local/tflint/bin
               echo "Configuring tflint..."
-              which awk
-              which cut
+
               #awk --help
-              which head
               #head --help
               #tail --help
+              sed --help
               which terraform
               # head works but with non 0 exit ??
               #FAIL terraform version | sed -n '1p;1q'
@@ -52,15 +51,13 @@ jobs:
 
               # FIX: line failing with code 141
               tf_ver=$(terraform version | awk 'FNR <= 1' | cut -dv -f2)
-              echo "Cut: $tf_ver"
-              tf_ver=$(terraform version | awk 'FNR <= 1' | awk -Fv '{ print $2 }')
-              echo "Awk: $tf_ver"
               echo -e "\tConfig for terraform version: ${tf_ver}"
-              #if [ -f '.tflint.hcl' ]; then
-              #  sed -i "/terraform_version =/s/\".*\"/\"${tf_ver}\"/" .tflint.hcl
-              #else
-              #  echo -e "config {\nterraform_version = \"${tf_ver}\"\ndeep_check = true\n}" > .tflint.hcl
-              #fi
+              if [ -f '.tflint.hcl' ]; then
+                sed -i "/terraform_version =/s/\".*\"/\"${tf_ver}\"/" .tflint.hcl
+              else
+                echo -e "config {\nterraform_version = \"${tf_ver}\"\ndeep_check = true\n}" > .tflint.hcl
+              fi
+              cat .tflint.hcl
       - run:
           # Not supporting modules from registry ?? v0.5.4
           # For now, must ignore in config file
