@@ -37,9 +37,10 @@ jobs:
               #awk --help
               which head
               head --help
+              tail --help
               which terraform
               # head works but with non 0 exit ??
-              terraform version | head -n1
+              terraform version
               # awk and cut work
               echo "test v111" | awk -Fv -e '{ print $2 }'
               echo "test v111" | cut -dv -f2
