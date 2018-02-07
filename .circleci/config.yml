@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: hashicorp/terraform:0.11.2
+      - image: hashicorp/terraform:0.11.3
         entrypoint: /bin/sh
     steps:
       - checkout
@@ -37,19 +37,7 @@ jobs:
               #head --help
               #tail --help
               sed --help
-              which terraform
-              # head works but with non 0 exit ??
-              #FAIL terraform version | sed -n '1p;1q'
-              #terraform version | sed -n '1p'
-              terraform version | awk 'FNR <= 1'
-              #FAIL terraform version | awk 'NR==1'
-              #FAIL terraform version | read X
-              #FAIL echo "Got: $X"
-              # awk and cut work
-              echo "test v111" | awk -Fv -e '{ print $2 }'
-              echo "test v111" | cut -dv -f2
-
-              # FIX: line failing with code 141
+              
               tf_ver=$(terraform version | awk 'FNR <= 1' | cut -dv -f2)
               echo -e "\tConfig for terraform version: ${tf_ver}"
               if [ -f '.tflint.hcl' ]; then
