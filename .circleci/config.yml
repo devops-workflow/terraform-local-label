@@ -33,11 +33,11 @@ jobs:
               install tflint /usr/local/tflint/bin
               echo "Configuring tflint..."
               which cut
-              cut -h
+              #cut -h
               which head
               which terraform
               terraform version | head -n 1
-              terraform version | head -n 1 | cut -dv -f2
+              terraform version | head -n 1 | cut -d v -f 2
 
               # FIX: line failing with code 141
               tf_ver=$(terraform version | head -n 1 | cut -dv -f2)
