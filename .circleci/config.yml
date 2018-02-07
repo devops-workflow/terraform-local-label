@@ -44,8 +44,8 @@ jobs:
               #terraform version | sed -n '1p'
               terraform version | awk 'FNR <= 1'
               #FAIL terraform version | awk 'NR==1'
-              terraform version | read X
-              echo "Got: $X"
+              #FAIL terraform version | read X
+              #FAIL echo "Got: $X"
               # awk and cut work
               echo "test v111" | awk -Fv -e '{ print $2 }'
               echo "test v111" | cut -dv -f2
