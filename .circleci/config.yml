@@ -43,11 +43,13 @@ jobs:
               fi
               echo "tflint configuration modified:"
               cat .tflint.hcl
-              {echo -e "config {\nterraform_version = \"${tf_ver}\"\ndeep_check = true\nignore_module = {"
+              {
+              echo -e "config {\nterraform_version = \"${tf_ver}\"\ndeep_check = true\nignore_module = {"
               for module in $(grep -h '[^a-zA-Z]source[ =]' *.tf | sed -r 's/.*=\s+//' | sort -u); do
                 echo "${module} = true"
               done
-              echo "}}"} > .tflint.hcl
+              echo "}}"
+              } > .tflint.hcl
               echo "tflint configuration NEW:"
               cat .tflint.hcl
       - run:
