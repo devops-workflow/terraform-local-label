@@ -34,11 +34,13 @@ jobs:
               echo "Configuring tflint..."
               which awk
               which cut
-              awk --help
+              #awk --help
               which head
+              head --help
               which terraform
+              # head works but with non 0 exit ??
               #terraform version | head -n 1
-              echo "Fail to pipe to cut or awk"
+              # awk and cut work
               echo "test v111" | awk -Fv -e '{ print $2 }'
               echo "test v111" | cut -dv -f2
 
