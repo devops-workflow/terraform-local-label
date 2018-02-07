@@ -32,12 +32,6 @@ jobs:
               echo "Installing tflint..."
               install tflint /usr/local/tflint/bin
               echo "Configuring tflint..."
-
-              #awk --help
-              #head --help
-              #tail --help
-              sed --help
-              
               tf_ver=$(terraform version | awk 'FNR <= 1' | cut -dv -f2)
               echo -e "\tConfig for terraform version: ${tf_ver}"
               if [ -f '.tflint.hcl' ]; then
