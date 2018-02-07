@@ -39,7 +39,7 @@ jobs:
               which terraform
               terraform version | head -n 1
               echo "Fail to pipe to cut or awk"
-              echo "test v111" | awk -Fv '{ print $2 }'
+              echo "test v111" | awk -Fv -e '{ print $2 }'
 
               # FIX: line failing with code 141
               #tf_ver=$(terraform version | head -n 1 | cut -dv -f2)
