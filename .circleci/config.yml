@@ -43,8 +43,12 @@ jobs:
               fi
               echo "tflint configuration:"
               cat .tflint.hcl
-              echo "Module list:"
-              grep -h '[^a-zA-Z]source[ =]' *.tf | sed -r 's/.*=\s+//' | sort -u
+              echo "Newly created config:"
+              echo -e "config {\nterraform_version = \"${tf_ver}\"\ndeep_check = true\nignore_module = {\n"
+              for module in $(grep -h '[^a-zA-Z]source[ =]' *.tf | sed -r 's/.*=\s+//' | sort -u); do
+                echo "${module} = true"
+              done
+              echo "}}"
       - run:
           # Not supporting modules from registry ?? v0.5.4
           # For now, must ignore in config file
