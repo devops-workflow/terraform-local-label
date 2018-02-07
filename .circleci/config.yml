@@ -32,9 +32,13 @@ jobs:
               echo "Installing tflint..."
               install tflint /usr/local/tflint/bin
               echo "Configuring tflint..."
+              which cut
+              which head
+              which terraform
+
               # FIX: line failing with code 141
-              #tf_ver=$(terraform version | head -1 | cut -dv -f2)
-              #echo -e "\tConfig for terraform version: ${tf_ver}"
+              tf_ver=$(terraform version | head -n 1 | cut -dv -f2)
+              echo -e "\tConfig for terraform version: ${tf_ver}"
               #if [ -f '.tflint.hcl' ]; then
               #  sed -i "/terraform_version =/s/\".*\"/\"${tf_ver}\"/" .tflint.hcl
               #else
