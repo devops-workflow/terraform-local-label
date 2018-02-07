@@ -36,11 +36,12 @@ jobs:
               which cut
               #awk --help
               which head
-              head --help
-              tail --help
+              #head --help
+              #tail --help
               which terraform
               # head works but with non 0 exit ??
-              terraform version | sed -n '1p;1q'
+              #FAIL terraform version | sed -n '1p;1q'
+              #terraform version | sed -n '1p'
               terraform version | awk 'FNR <= 1'
               terraform version | awk 'NR==1'
               terraform version | read X
