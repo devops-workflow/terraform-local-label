@@ -30,8 +30,8 @@ jobs:
               wget ${dl_url}
               unzip tflint_linux_amd64.zip
               mkdir -p /usr/local/tflint/bin
-              # Setup PATH for later run steps
-              echo 'export PATH=/usr/local/tflint/bin:$PATH' >> $BASH_ENV
+              # Setup PATH for later run steps - ONLY for Bash and not in Bash
+              #echo 'export PATH=/usr/local/tflint/bin:$PATH' >> $BASH_ENV
               echo "Installing tflint..."
               install tflint /usr/local/tflint/bin
               echo "Configuring tflint..."
@@ -58,8 +58,8 @@ jobs:
               #echo "Initializing terraform..."
               #terraform init -input=false
               echo "Running tflint..."
-              tflint --version
-              tflint
+              /usr/local/tflint/bin/tflint --version
+              /usr/local/tflint/bin/tflint
 
 workflows:
   version: 2
