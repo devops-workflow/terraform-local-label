@@ -51,8 +51,10 @@ jobs:
               echo "test v111" | cut -dv -f2
 
               # FIX: line failing with code 141
-              #tf_ver=$(terraform version | head -n 1 | cut -dv -f2)
-              #tf_ver=$(terraform version | head -n 1 | awk -Fv '{ print $2 }')
+              tf_ver=$(terraform version | awk 'FNR <= 1' | cut -dv -f2)
+              echo "Cut: $tf_ver"
+              tf_ver=$(terraform version | awk 'FNR <= 1' | awk -Fv '{ print $2 }')
+              echo "Awk: $tf_ver"
               echo -e "\tConfig for terraform version: ${tf_ver}"
               #if [ -f '.tflint.hcl' ]; then
               #  sed -i "/terraform_version =/s/\".*\"/\"${tf_ver}\"/" .tflint.hcl
