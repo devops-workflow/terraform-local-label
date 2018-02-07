@@ -43,7 +43,7 @@ jobs:
               #FAIL terraform version | sed -n '1p;1q'
               #terraform version | sed -n '1p'
               terraform version | awk 'FNR <= 1'
-              terraform version | awk 'NR==1'
+              #FAIL terraform version | awk 'NR==1'
               terraform version | read X
               echo "Got: $X"
               # awk and cut work
