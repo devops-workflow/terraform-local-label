@@ -61,10 +61,16 @@ locals {
   tags = "${ merge(
     var.tags,
     map(
-      "Name", "${local.id}",
-      "Environment", "${local.env}",
+      "Component",    "${var.component}",
+      "Environment",  "${local.env}",
+      "Monitor",      "${var.monitor}",
+      "Name",         "${local.id}",
       "Organization", "${local.org}",
-      "Terraform", "true"
+      "Owner",        "${var.owner}",
+      "Product",      "${var.product}",
+      "Service",      "${var.service}",
+      "Team",         "${var.team}",
+      "Terraform",    "true"
     )
   )}"
 

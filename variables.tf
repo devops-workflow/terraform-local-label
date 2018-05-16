@@ -9,6 +9,11 @@ variable "autoscaling_group" {
   default     = false
 }
 
+variable "component" {
+  description = "Underlying, dedicated piece of service (Cache, DB, ...)"
+  default     = "UNDEF"
+}
+
 variable "delimiter" {
   description = "Delimiter to be used between `name`, `namespaces`, `attributes`, etc."
   default     = "-"
@@ -16,6 +21,11 @@ variable "delimiter" {
 
 variable "environment" {
   description = "Environment (ex: `dev`, `qa`, `stage`, `prod`). (Second or top level namespace. Depending on namespacing options)"
+}
+
+variable "monitor" {
+  description = "Should resource be monitored"
+  default     = "UNDEF"
 }
 
 variable "name" {
@@ -33,12 +43,32 @@ variable "namespace-org" {
 }
 
 variable "organization" {
-  description = "Organization name (Top level namespace)."
+  description = "Organization name (Top level namespace)"
   default     = ""
+}
+
+variable "owner" {
+  description = "Owner of the service"
+  default     = "UNDEF"
+}
+
+variable "product" {
+  description = "Company/business product"
+  default     = "UNDEF"
+}
+
+variable "service" {
+  description = "Application (microservice) name"
+  default     = "UNDEF"
 }
 
 variable "tags" {
   description = "A map of additional tags"
   type        = "map"
   default     = {}
+}
+
+variable "team" {
+  description = "Department/team of people responsible for service"
+  default     = "UNDEF"
 }

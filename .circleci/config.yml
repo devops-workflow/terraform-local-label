@@ -43,6 +43,7 @@ jobs:
                 {
                 echo -e "config {\nterraform_version = \"${tf_ver}\"\ndeep_check = true\nignore_module = {"
                 for module in $(grep -h '[^a-zA-Z]source[ =]' *.tf | sed -r 's/.*=\s+//' | sort -u); do
+                  # if not ^"../
                   echo "${module} = true"
                 done
                 echo "}}"
