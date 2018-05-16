@@ -10,7 +10,7 @@ variable "autoscaling_group" {
 }
 
 variable "component" {
-  description = "Underlying, dedicated piece of service (Cache, DB, ...)"
+  description = "TAG: Underlying, dedicated piece of service (Cache, DB, ...)"
   default     = "UNDEF"
 }
 
@@ -24,7 +24,7 @@ variable "environment" {
 }
 
 variable "monitor" {
-  description = "Should resource be monitored"
+  description = "TAG: Should resource be monitored"
   default     = "UNDEF"
 }
 
@@ -48,17 +48,17 @@ variable "organization" {
 }
 
 variable "owner" {
-  description = "Owner of the service"
+  description = "TAG: Owner of the service"
   default     = "UNDEF"
 }
 
 variable "product" {
-  description = "Company/business product"
+  description = "TAG: Company/business product"
   default     = "UNDEF"
 }
 
 variable "service" {
-  description = "Application (microservice) name"
+  description = "TAG: Application (microservice) name"
   default     = "UNDEF"
 }
 
@@ -69,6 +69,6 @@ variable "tags" {
 }
 
 variable "team" {
-  description = "Department/team of people responsible for service"
+  description = "TAG: Department/team of people responsible for service"
   default     = "UNDEF"
 }
