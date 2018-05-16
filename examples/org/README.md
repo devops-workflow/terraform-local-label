@@ -1,0 +1,1 @@
+# Example using Organization namespace
