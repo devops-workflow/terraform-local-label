@@ -4,11 +4,6 @@ variable "attributes" {
   default     = []
 }
 
-variable "autoscaling_group" {
-  description = "DOES NOTHING YET. If true, generate ASG tags map resource"
-  default     = false
-}
-
 variable "component" {
   description = "TAG: Underlying, dedicated piece of service (Cache, DB, ...)"
   type        = "string"
