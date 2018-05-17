@@ -4,5 +4,4 @@ module "labels" {
   environment       = "Dev"
   organization      = "CorpXyZ"
   attributes        = ["role", "policy", "use", ""]
-  autoscaling_group = true
 }
