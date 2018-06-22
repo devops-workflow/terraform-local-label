@@ -82,11 +82,16 @@ jobs:
               dl_url='https://github.com/felicianotech/md-proofer/releases/download/v0.2.0/md-proofer--v0.2.0--linux-amd64.tar.gz'
               wget ${dl_url}
               tar xzf md-proofer--v0.2.0--linux-amd64.tar.gz
-              # run
-              ls -la
+      - run:
+          name: "Check: markdown proofer"
+          command: |
               ./md-proofer version
-              ./md-proofer lint --help
-              ./md-proofer lint ./
+              #./md-proofer lint --help
+              if ./md-proofer lint ./; then
+                echo "md-proofer passed"
+              else
+                echo "md-proofer failed"
+              fi
   terraform_0_11_3:
     docker:
       - image: hashicorp/terraform:0.11.3
