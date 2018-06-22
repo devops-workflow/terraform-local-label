@@ -86,7 +86,7 @@ jobs:
               #unzip md-proofer_linux_amd64.zip
               tar xzf md-proofer--v0.2.0--linux-amd64.tar.gz
               # run
-              chwon root:root md-proofer
+              chown root:root md-proofer
               chmod +x md-proofer
               ls -la
               ./md-proofer -h
