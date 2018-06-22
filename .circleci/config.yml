@@ -83,11 +83,10 @@ jobs:
               wget ${dl_url}
               tar xzf md-proofer--v0.2.0--linux-amd64.tar.gz
               # run
-              #chown root:root md-proofer
-              #chmod +x md-proofer
               ls -la
               ./md-proofer version
               ./md-proofer lint --help
+              ./md-proofer ./
   terraform_0_11_3:
     docker:
       - image: hashicorp/terraform:0.11.3
