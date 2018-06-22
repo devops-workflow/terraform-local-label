@@ -75,8 +75,8 @@ jobs:
       - run:
           name: "Install: markdown proofer"
           command: |
-              apt-get update
-              apt-get install jq wget
+              #apt-get update
+              #apt-get install jq wget
               # Get latest version of tflint (v0.7.0 test if still need to exclude modules. Any other changes)
               pkg_arch=linux_amd64
               # Prerelease so latest doesn't work yet
