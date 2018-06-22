@@ -86,6 +86,7 @@ jobs:
               #unzip md-proofer_linux_amd64.zip
               tar xzf md-proofer--v0.2.0--linux-amd64.tar.gz
               # run
+              ls -la
               ./md-proofer -h
   terraform_0_11_3:
     docker:
