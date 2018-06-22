@@ -70,23 +70,23 @@ jobs:
     docker:
     - image: hashicorp/terraform:latest
       entrypoint: /bin/sh
-      steps:
-        - checkout
-        - run:
-            name: "Install: markdown proofer"
-            command: |
-                apk update
-                apk add jq wget
-                # Get latest version of tflint (v0.7.0 test if still need to exclude modules. Any other changes)
-                pkg_arch=linux_amd64
-                # Prerelease so latest doesn't work yet
-                #dl_url=$(curl -s https://api.github.com/repos/felicianotech/md-proofer/releases/latest | jq -r ".assets[] | select(.name | test(\"${pkg_arch}\")) | .browser_download_url")
-                dl_url='https://github.com/felicianotech/md-proofer/releases/download/v0.2.0/md-proofer--v0.2.0--linux-amd64.tar.gz'
-                wget ${dl_url}
-                #unzip md-proofer_linux_amd64.zip
-                tar xzf md-proofer--v0.2.0--linux-amd64.tar.gz
-                # run
-                ./md-proofer -h
+    steps:
+      - checkout
+      - run:
+          name: "Install: markdown proofer"
+          command: |
+              apk update
+              apk add jq wget
+              # Get latest version of tflint (v0.7.0 test if still need to exclude modules. Any other changes)
+              pkg_arch=linux_amd64
+              # Prerelease so latest doesn't work yet
+              #dl_url=$(curl -s https://api.github.com/repos/felicianotech/md-proofer/releases/latest | jq -r ".assets[] | select(.name | test(\"${pkg_arch}\")) | .browser_download_url")
+              dl_url='https://github.com/felicianotech/md-proofer/releases/download/v0.2.0/md-proofer--v0.2.0--linux-amd64.tar.gz'
+              wget ${dl_url}
+              #unzip md-proofer_linux_amd64.zip
+              tar xzf md-proofer--v0.2.0--linux-amd64.tar.gz
+              # run
+              ./md-proofer -h
   terraform_0_11_3:
     docker:
       - image: hashicorp/terraform:0.11.3
