@@ -109,6 +109,7 @@ workflows:
   version: 2
   terraform_testing:
     jobs:
+      - markdown_validate
       - terraform_0_11_3
       - terraform_0_11_7
       - terraform_latest
