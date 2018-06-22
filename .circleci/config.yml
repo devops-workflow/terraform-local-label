@@ -68,7 +68,7 @@ version: 2
 jobs:
   markdown_validate:
     docker:
-    - image: hashicorp/terraform:latest
+    - image: circleci/golang:1.10
       entrypoint: /bin/sh
     steps:
       - checkout
@@ -90,6 +90,7 @@ jobs:
               chmod +x md-proofer
               ls -la
               ./md-proofer -h
+              ./md-proofer lint .
   terraform_0_11_3:
     docker:
       - image: hashicorp/terraform:0.11.3
