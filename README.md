@@ -4,11 +4,18 @@
 
 Terraform module to provide consistent label names and tags for resources.
 
-A single name format will not solve every use case, so multiple variants are returned and there is a few options to affect how they get build. The general name convention is `{organization}-{environment}-{name}-{attributes}`. `Name` is required, the other 3 can be turned on/off individually. The delimiter (`-`) can be changed
+A single name format will not solve every use case, so multiple variants are
+returned and there is a few options to affect how they get build. The general
+name convention is `{organization}-{environment}-{name}-{attributes}`.
+`Name` is required, the other 3 can be turned on/off individually.
+The delimiter (`-`) can be changed
 
-All [devops-workflow](https://registry.terraform.io/modules/devops-workflow) modules will eventually use this or [labels](https://registry.terraform.io/modules/devops-workflow/labels/null).
+All [devops-workflow](https://registry.terraform.io/modules/devops-workflow)
+modules will eventually use this or [labels](https://registry.terraform.io/modules/devops-workflow/labels/null).
 
-**NOTE:** `local` refers to this using [locals](https://www.terraform.io/docs/configuration/locals.html) and does not create any resources. It just builds new variables.
+**NOTE:** `local` refers to this using
+[locals](https://www.terraform.io/docs/configuration/locals.html) and does not
+create any resources. It just builds new variables.
 
 [Terraform registry](https://registry.terraform.io/modules/devops-workflow/label/local)
 
