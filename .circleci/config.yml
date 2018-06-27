@@ -89,7 +89,8 @@ jobs:
       - run:
           name: "Check: markdown lint (node.js)"
           command: |
-              markdownlint --help
+              #markdownlint --help
+              echo -n "markdownlint version: "
               markdownlint --version
               markdownlint ./
   # Markdown Lint https://github.com/markdownlint/markdownlint
@@ -107,6 +108,7 @@ jobs:
           name: "Check: markdown lint (ruby)"
           command: |
               #mdl --help
+              echo -n "mdl version: "
               mdl --version
               mdl ./
   markdown_proofer:
