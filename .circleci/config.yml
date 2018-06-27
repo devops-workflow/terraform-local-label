@@ -85,7 +85,7 @@ jobs:
       - run:
           name: "Install: markdown lint (node.js)"
           command: |
-              npm install markdownlint-cli
+              sudo npm install -g markdownlint-cli
       - run:
           name: "Check: markdown lint (node.js)"
           command: |
