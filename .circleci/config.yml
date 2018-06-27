@@ -75,8 +75,8 @@ jobs:
   ### Documentation testing: Markdown
   ###
   # Markdown Lint https://github.com/DavidAnson/markdownlint
-  # circleci/node: latest, 10, 10.5, 10.5.0, 10.5.0-jessie
-  #- CLI https://github.com/igorshubovych/markdownlint-cli
+  # CLI https://github.com/igorshubovych/markdownlint-cli
+  # https://hub.docker.com/r/circleci/node/tags/
   markdown_lint_node:
     docker:
       - image: circleci/node:10.5.0
@@ -160,6 +160,8 @@ workflows:
   version: 2
   terraform_testing:
     jobs:
+      - markdown_lint_node
+      - markdown_lint_ruby
       - markdown_proofer
       - terraform_0_11_3
       - terraform_0_11_7
