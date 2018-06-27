@@ -1,6 +1,6 @@
-[![CircleCI](https://circleci.com/gh/devops-workflow/terraform-local-label.svg?style=svg)](https://circleci.com/gh/devops-workflow/terraform-local-label)
-
 # terraform-local-label
+
+[![CircleCI](https://circleci.com/gh/devops-workflow/terraform-local-label.svg?style=svg)](https://circleci.com/gh/devops-workflow/terraform-local-label)
 
 Terraform module to provide consistent label names and tags for resources.
 
