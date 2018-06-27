@@ -85,7 +85,7 @@ jobs:
       - run:
           name: "Install: markdown lint (node.js)"
           command: |
-              npm install -g markdownlint-cli
+              npm install markdownlint-cli
       - run:
           name: "Check: markdown lint (node.js)"
           command: |
@@ -106,7 +106,8 @@ jobs:
       - run:
           name: "Check: markdown lint (ruby)"
           command: |
-              mdl --help
+              #mdl --help
+              mdl --version
               mdl ./
   markdown_proofer:
     docker:
