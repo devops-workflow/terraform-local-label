@@ -1,6 +1,11 @@
 version: 2
 
 # TODO: centralize full configuration. Figure out how
+#   ?? Each step as a separate script that is downloaded and run ??
+#   ?? CircleCI feature request to supoort include from remote sources
+# More Markdown terraform_testing
+# Python testing
+# circleci/python:
 
 # This file uses YAML anchors to deduplicate steps
 # see https://circleci.com/blog/circleci-hacks-reuse-yaml-in-your-circleci-config-with-yaml/
@@ -66,7 +71,44 @@ version: 2
             /usr/local/tflint/bin/tflint
 
 jobs:
-  markdown_validate:
+  ###
+  ### Documentation testing: Markdown
+  ###
+  # Markdown Lint https://github.com/DavidAnson/markdownlint
+  # circleci/node: latest, 10, 10.5, 10.5.0, 10.5.0-jessie
+  #- CLI https://github.com/igorshubovych/markdownlint-cli
+  markdown_lint_node:
+    docker:
+      - image: circleci/node:10.5.0
+    steps:
+      - checkout
+      - run:
+          name: "Install: markdown lint (node.js)"
+          command: |
+              npm install -g markdownlint-cli
+      - run:
+          name: "Check: markdown lint (node.js)"
+          command: |
+              markdownlint --help
+              markdownlint --version
+              markdownlint ./
+  # Markdown Lint https://github.com/markdownlint/markdownlint
+  # https://hub.docker.com/r/circleci/ruby/tags/
+  markdown_lint_ruby:
+    docker:
+      - image: circleci/ruby:2.5.1
+    steps:
+      - checkout
+      - run:
+          name: "Install: markdown lint (ruby)"
+          command: |
+              gem install mdl
+      - run:
+          name: "Check: markdown lint (ruby)"
+          command: |
+              mdl --help
+              mdl ./
+  markdown_proofer:
     docker:
       - image: circleci/golang:1.10
         entrypoint: /bin/sh
@@ -87,11 +129,15 @@ jobs:
           command: |
               ./md-proofer version
               #./md-proofer lint --help
+              # Will this find all *.md in directory structure or need to run in each directory ?
               if ./md-proofer lint ./; then
                 echo "md-proofer passed"
               else
                 echo "md-proofer failed"
               fi
+  ###
+  ### Terraform testing
+  ###
   terraform_0_11_3:
     docker:
       - image: hashicorp/terraform:0.11.3
@@ -114,7 +160,7 @@ workflows:
   version: 2
   terraform_testing:
     jobs:
-      - markdown_validate
+      - markdown_proofer
       - terraform_0_11_3
       - terraform_0_11_7
       - terraform_latest
