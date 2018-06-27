@@ -10,11 +10,11 @@ All [devops-workflow](https://registry.terraform.io/modules/devops-workflow) mod
 
 **NOTE:** `local` refers to this using [locals](https://www.terraform.io/docs/configuration/locals.html) and does not create any resources. It just builds new variables.
 
-Terraform registry: https://registry.terraform.io/modules/devops-workflow/label/local
+[Terraform registry](https://registry.terraform.io/modules/devops-workflow/label/local)
 
-## Usage:
+## Usage
 
-#### Basic Example
+### Basic Example
 
 ```hcl
 module "name" {
@@ -24,9 +24,10 @@ module "name" {
   environment   = "qa"
 }
 ```
+
 This will create an `id` with the value of `qa-name`
 
-#### S3 Example
+### S3 Example
 
 ```hcl
 module "s3-name" {
@@ -38,6 +39,7 @@ module "s3-name" {
   namespace-org = "true"
 }
 ```
+
 This will create an `id` with the value of `corp-qa-data`
 
 Now reference `label` outputs to create the S3 bucket
@@ -49,7 +51,7 @@ resource "aws_s3_bucket" "data" {
 }
 ```
 
-#### All Variables Example
+### All Variables Example
 Using in a module and exposing all settings to upstream caller.
 
 ```hcl

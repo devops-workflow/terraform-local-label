@@ -1,6 +1,7 @@
 # Example with additional tags
 
-### Attributes output:
+## Attributes output
+
 ```
 Outputs:
 

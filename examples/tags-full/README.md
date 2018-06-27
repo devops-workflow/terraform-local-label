@@ -1,6 +1,7 @@
 # Example with all tags defined
 
-### Attributes output:
+## Attributes output
+
 ```
 Outputs:
 

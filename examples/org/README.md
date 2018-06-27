@@ -1,6 +1,7 @@
 # Example using Organization namespace
 
-### Attributes output:
+## Attributes output
+
 ```
 Outputs:
 

@@ -1,6 +1,7 @@
 # Example using attributes
 
-### Attributes output:
+## Attributes output
+
 ```
 Outputs:
 

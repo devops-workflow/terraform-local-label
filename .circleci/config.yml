@@ -110,7 +110,7 @@ jobs:
               #mdl --help
               echo -n "mdl version: "
               mdl --version
-              mdl ./
+              mdl .
   markdown_proofer:
     docker:
       - image: circleci/golang:1.10

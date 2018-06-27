@@ -1,6 +1,7 @@
 # Example using both Environment and Organization name spaces
 
-### Attributes output:
+## Attributes output
+
 ```
 Outputs:
 

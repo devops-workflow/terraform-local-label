@@ -1,6 +1,7 @@
 # Example using Environment namespace
 
-### Attributes output:
+## Attributes output
+
 ```
 Outputs:
 

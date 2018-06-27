@@ -1,6 +1,7 @@
 # Example basic module use
 
-### Attributes output:
+## Attributes output
+
 ```
 Outputs:
 
