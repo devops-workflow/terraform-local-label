@@ -2,7 +2,7 @@
 
 ## Attributes output
 
-```
+```Text
 Outputs:
 
 attributes =

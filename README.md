@@ -52,6 +52,7 @@ resource "aws_s3_bucket" "data" {
 ```
 
 ### All Variables Example
+
 Using in a module and exposing all settings to upstream caller.
 
 ```hcl
