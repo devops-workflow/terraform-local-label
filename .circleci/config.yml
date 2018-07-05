@@ -4,8 +4,11 @@ version: 2
 #   ?? Each step as a separate script that is downloaded and run ??
 #   ?? CircleCI feature request to supoort include from remote sources
 # More Markdown terraform_testing
-# Python testing
-# circleci/python:
+# Python testing. Add doc and test that too
+# circleci/python: Both 2 and 3?
+# if src/requirements.txt get version from *.tf and test
+#   Style+: flake8 + hacking?, prospector?
+#   Security: bandit, RATS,
 
 # This file uses YAML anchors to deduplicate steps
 # see https://circleci.com/blog/circleci-hacks-reuse-yaml-in-your-circleci-config-with-yaml/
@@ -54,7 +57,7 @@ version: 2
                 # if not ^"../
                 echo "${module} = true"
               done
-              echo "}}"
+              echo -e "}\n}\n"
               } > .tflint.hcl
               fi
             echo "tflint configuration:"
@@ -165,7 +168,8 @@ workflows:
     jobs:
       - markdown_lint_node
       - markdown_lint_ruby
-      - markdown_proofer
+      # Currently doesn't do anything that markdownlint node doesn't do
+      #- markdown_proofer
       - terraform_0_11_3
       - terraform_0_11_7
       - terraform_latest
