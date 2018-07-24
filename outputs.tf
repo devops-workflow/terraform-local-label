@@ -34,12 +34,12 @@ output "id_attr_32" {
 }
 
 output "id_env" {
-  description = "If env namespace enabled <env>-<name> else <name>"
+  description = "If env namespace enabled `env-name` else `name`"
   value       = "${local.id_env}"
 }
 
 output "id_org" {
-  description = "If org namespace enabled <org>-<id_env> else <id_env>"
+  description = "If org namespace enabled `org-id_env` else `id_env`"
   value       = "${local.id_org}"
 }
 

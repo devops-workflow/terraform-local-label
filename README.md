@@ -111,8 +111,8 @@ module "label" {
 | id_32 | ID truncated to 32 characters |
 | id_attr_20 | ID max size 20 characters by truncating `id_org` then appending `attributes` |
 | id_attr_32 | ID max size 32 characters by truncating `id_org` then appending `attributes` |
-| id_env | If env namespace enabled <env>-<name> else <name> |
-| id_org | If org namespace enabled <org>-<id_env> else <id_env> |
+| id_env | If env namespace enabled `env-name` else `name` |
+| id_org | If org namespace enabled `org-id_env` else `id_env` |
 | name | Name lowercase |
 | org_attr_20 | Internal debugging. DO NOT USE |
 | org_attr_32 | Internal debugging. DO NOT USE |
