@@ -58,7 +58,6 @@ output "tags" {
   value       = "${local.tags}"
 }
 
-//debugging
 output "org_attr_20" {
   description = "Internal debugging. DO NOT USE"
   value       = "${local.org_attr_20}"

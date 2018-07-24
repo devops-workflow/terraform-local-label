@@ -112,7 +112,7 @@ module "label" {
 | id_env | If env namespace enabled <env>-<name> else <name> |
 | id_org | If org namespace enabled <org>-<id_env> else <id_env> |
 | name | Name lowercase |
-| org_attr_20 | debugging |
+| org_attr_20 | Internal debugging. DO NOT USE |
 | org_attr_32 | Internal debugging. DO NOT USE |
 | organization | Organization name lowercase |
 | tags | Tags map merged with standard tags |
