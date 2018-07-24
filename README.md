@@ -76,6 +76,7 @@ module "label" {
   tags          = "${var.tags}"
 }
 ```
+
 <!-- markdownlint-disable MD013 -->
 <!-- markdownlint-disable MD033 -->
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
