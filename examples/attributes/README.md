@@ -54,4 +54,3 @@ tags = {
 | tags | Tags with standard tags added |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-

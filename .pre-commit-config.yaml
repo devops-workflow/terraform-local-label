@@ -7,7 +7,7 @@
 repos:
   - repo: git://github.com/devops-workflow/pre-commit-terraform
     # Requires: terraform, terraform-docs
-    rev: v1.8.0
+    rev: v1.8.1
     hooks:
       - id: terraform_fmt
       - id: terraform_docs
