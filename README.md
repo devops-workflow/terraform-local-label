@@ -1,6 +1,7 @@
 # terraform-local-label
 
 [![CircleCI](https://circleci.com/gh/devops-workflow/terraform-local-label.svg?style=svg)](https://circleci.com/gh/devops-workflow/terraform-local-label)
+[![Github release](https://img.shields.io/github/release/devops-workflow/terraform-local-label.svg)](https://github.com/devops-workflow/terraform-local-label/releases)
 
 Terraform module to provide consistent label names and tags for resources.
 
@@ -91,8 +92,8 @@ module "label" {
 | environment | Environment (ex: `dev`, `qa`, `stage`, `prod`). (Second or top level namespace. Depending on namespacing options) | string | - | yes |
 | monitor | TAG: Should resource be monitored | string | `UNDEF` | no |
 | name | Base name for resource | string | - | yes |
-| namespace-env | Prefix name with the environment. If true, format is: <env>-<name> | string | `true` | no |
-| namespace-org | Prefix name with the organization. If true, format is: <org>-<env namespaced name>. If both env and org namespaces are used, format will be <org>-<env>-<name> | string | `false` | no |
+| namespace-env | Prefix name with the environment. If true, format is: `{env}-{name}` | string | `true` | no |
+| namespace-org | Prefix name with the organization. If true, format is: `{org}-{env namespaced name}`. If both env and org namespaces are used, format will be `{org}-{env}-{name}` | string | `false` | no |
 | organization | Organization name (Top level namespace) | string | `` | no |
 | owner | TAG: Owner of the service | string | `UNDEF` | no |
 | product | TAG: Company/business product | string | `UNDEF` | no |
@@ -111,8 +112,8 @@ module "label" {
 | id_32 | ID truncated to 32 characters |
 | id_attr_20 | ID max size 20 characters by truncating `id_org` then appending `attributes` |
 | id_attr_32 | ID max size 32 characters by truncating `id_org` then appending `attributes` |
-| id_env | If env namespace enabled `env-name` else `name` |
-| id_org | If org namespace enabled `org-id_env` else `id_env` |
+| id_env | If env namespace enabled `{env}-{name}` else `{name}` |
+| id_org | If org namespace enabled `{org}-{id_env}` else `{id_env}` |
 | name | Name lowercase |
 | org_attr_20 | Internal debugging. DO NOT USE |
 | org_attr_32 | Internal debugging. DO NOT USE |
