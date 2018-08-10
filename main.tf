@@ -5,7 +5,6 @@
 #   Change where replace is done. Move to earlier in process. On initial `name`?
 #   Create tags_asg list from tags map. If possible
 #   New input tags_asg -> tags_asg with standard tags added
-#
 
 module "namespace-env" {
   source  = "devops-workflow/boolean/local"
