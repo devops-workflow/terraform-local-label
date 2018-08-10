@@ -123,5 +123,5 @@ module "label" {
 
 ### Resource Graph of plan
 
-![Terraform Graph](graph.png)
+![Terraform Graph](resource-plan-graph.png)
 <!-- END OF PRE-COMMIT-TERRAFORM GRAPH HOOK -->
