@@ -78,8 +78,6 @@ module "label" {
 }
 ```
 
-<!-- markdownlint-disable MD013 -->
-<!-- markdownlint-disable MD033 -->
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Inputs
@@ -121,3 +119,9 @@ module "label" {
 | tags | Tags map merged with standard tags |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM GRAPH HOOK -->
+
+### Resource Graph of plan
+
+![Terraform Graph](graph.png)
+<!-- END OF PRE-COMMIT-TERRAFORM GRAPH HOOK -->
