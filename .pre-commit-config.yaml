@@ -5,25 +5,29 @@
 # TODO: write dependencies install instructions and put in each of
 #       my pre-commit repos. Decide where to put for others
 repos:
-  - repo: git://github.com/devops-workflow/pre-commit-terraform
-    # Requires: terraform, terraform-docs
-    rev: v1.8.1
+  - repo: https://github.com/devops-workflow/pre-commit-terraform
+    #rev: v1.8.1
+    rev: fe0a3867878184005efb153ba6142b5e9e3ee4aa
     hooks:
       - id: terraform_fmt
       - id: terraform_docs
-  - repo: git://github.com/pre-commit/pre-commit-hooks
-    rev: v1.2.3
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v1.4.0
     hooks:
-      - id: check-merge-conflict
-      - id: trailing-whitespace
-      # - id: end-of-file-fixer
       - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
       - id: check-yaml
-      # TODO: test these
-      # check-json
-      # pretty-format-json
-      # detect-aws-credentials
-      # detect-private-key
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: trailing-whitespace
+        # TODO: test these
+        # check-json
+        # pretty-format-json
+        # detect-aws-credentials
+        # detect-private-key
   #- repo: https://github.com/jumanjihouse/pre-commit-hooks
   #  # Requires: shellcheck, shfmt
   #  rev: 1.8.0
