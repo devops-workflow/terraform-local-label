@@ -6,9 +6,10 @@
 #       my pre-commit repos. Decide where to put for others
 repos:
   - repo: https://github.com/devops-workflow/pre-commit-terraform
-    rev: v1.12.0
+    rev: v1.13.0
     hooks:
       - id: terraform_tools
+      - id: terraform_template
       - id: terraform_fmt
       - id: terraform_docs
       - id: terraform_graph
