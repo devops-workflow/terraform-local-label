@@ -79,7 +79,6 @@ module "label" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -106,15 +105,15 @@ module "label" {
 | attributes | Attribute string lowercase |
 | environment | Environment name lowercase |
 | id | Fully formatted name ID |
-| id_20 | ID truncated to 20 characters |
-| id_32 | ID truncated to 32 characters |
-| id_attr_20 | ID max size 20 characters by truncating `id_org` then appending `attributes` |
-| id_attr_32 | ID max size 32 characters by truncating `id_org` then appending `attributes` |
-| id_env | If env namespace enabled `{env}-{name}` else `{name}` |
-| id_org | If org namespace enabled `{org}-{id_env}` else `{id_env}` |
+| id\_20 | ID truncated to 20 characters |
+| id\_32 | ID truncated to 32 characters |
+| id\_attr\_20 | ID max size 20 characters by truncating `id_org` then appending `attributes` |
+| id\_attr\_32 | ID max size 32 characters by truncating `id_org` then appending `attributes` |
+| id\_env | If env namespace enabled `{env}-{name}` else `{name}` |
+| id\_org | If org namespace enabled `{org}-{id_env}` else `{id_env}` |
 | name | Name lowercase |
-| org_attr_20 | Internal debugging. DO NOT USE |
-| org_attr_32 | Internal debugging. DO NOT USE |
+| org\_attr\_20 | Internal debugging. DO NOT USE |
+| org\_attr\_32 | Internal debugging. DO NOT USE |
 | organization | Organization name lowercase |
 | tags | Tags map merged with standard tags |
 
