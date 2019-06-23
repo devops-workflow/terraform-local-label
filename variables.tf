@@ -1,35 +1,35 @@
 variable "attributes" {
   description = "Suffix name with additional attributes (policy, role, etc.)"
-  type        = "list"
+  type        = list(string)
   default     = []
 }
 
 variable "component" {
   description = "TAG: Underlying, dedicated piece of service (Cache, DB, ...)"
-  type        = "string"
+  type        = string
   default     = "UNDEF"
 }
 
 variable "delimiter" {
   description = "Delimiter to be used between `name`, `namespaces`, `attributes`, etc."
-  type        = "string"
+  type        = string
   default     = "-"
 }
 
 variable "environment" {
   description = "Environment (ex: `dev`, `qa`, `stage`, `prod`). (Second or top level namespace. Depending on namespacing options)"
-  type        = "string"
+  type        = string
 }
 
 variable "monitor" {
   description = "TAG: Should resource be monitored"
-  type        = "string"
+  type        = string
   default     = "UNDEF"
 }
 
 variable "name" {
   description = "Base name for resource"
-  type        = "string"
+  type        = string
 }
 
 variable "namespace-env" {
@@ -44,36 +44,37 @@ variable "namespace-org" {
 
 variable "organization" {
   description = "Organization name (Top level namespace)"
-  type        = "string"
+  type        = string
   default     = ""
 }
 
 variable "owner" {
   description = "TAG: Owner of the service"
-  type        = "string"
+  type        = string
   default     = "UNDEF"
 }
 
 variable "product" {
   description = "TAG: Company/business product"
-  type        = "string"
+  type        = string
   default     = "UNDEF"
 }
 
 variable "service" {
   description = "TAG: Application (microservice) name"
-  type        = "string"
+  type        = string
   default     = "UNDEF"
 }
 
 variable "tags" {
   description = "A map of additional tags"
-  type        = "map"
+  type        = map(string)
   default     = {}
 }
 
 variable "team" {
   description = "TAG: Department/team of people responsible for service"
-  type        = "string"
+  type        = string
   default     = "UNDEF"
 }
+
