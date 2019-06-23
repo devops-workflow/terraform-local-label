@@ -22,8 +22,8 @@ locals {
   env         = lower(format("%s", var.environment))
   name_low    = replace(lower(format("%s", var.name)), "_", "-")
   org         = lower(format("%s", var.organization))
-  id_env      = module.namespace-env.value ? join(var.delimiter, [local.env, local.name_low]) : local.name_low
-  id_org      = module.namespace-org.value ? join(var.delimiter, [local.org, local.id_env]) : local.id_env
+  id_env      = module.namespace-env.value == 1 ? join(var.delimiter, [local.env, local.name_low]) : local.name_low
+  id_org      = module.namespace-org.value == 1 ? join(var.delimiter, [local.org, local.id_env]) : local.id_env
   id          = length(local.attr) > 0 ? join(var.delimiter, [local.id_org, local.attr]) : local.id_org
   id_20       = substr(local.id, 0, 19 <= length(local.id) ? 19 : length(local.id))
   id_32       = substr(local.id, 0, 31 <= length(local.id) ? 31 : length(local.id))
